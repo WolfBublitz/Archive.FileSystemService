@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "V1/version_message.proto";
+
+option csharp_namespace = "Archive.FileSystemService.V1";
+
+message Identification {
+    Version version = 1;
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option csharp_namespace = "Archive.FileSystemService.V1";
+
+message Exception
+{
+    string type = 1;
+    string message = 2;
+}

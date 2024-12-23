@@ -1,0 +1,7 @@
+---
+# Lint directives.
+lint:
+  rules:
+  rules_option:
+    indent:
+      style: 4

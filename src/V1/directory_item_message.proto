@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option csharp_namespace = "Archive.FileSystemService.V1";
+
+message DirectoryItem
+{
+    string absolute_path = 1;
+    string name = 2;
+    string created_at = 6;
+    string modified_at = 7;
+}
