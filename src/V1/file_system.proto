@@ -12,26 +12,28 @@ option csharp_namespace = "Archive.FileSystemService.V1";
 service FileSystem {
     rpc Identify (google.protobuf.Empty) returns (Identification);
 
-    rpc ReadFile (ReadFileRequest) returns (ReadFileResponse);
+    rpc ReadFile (ReadFileRequest) returns (stream ReadFileResponse);
 
     rpc ReadDirectory (ReadDirectoryRequest) returns (ReadDirectoryResponse);
 }
 
 message ReadFileRequest {
     string path = 1;
+    int32 chunk_size = 2;
 }
 
 message ReadFileResponse {
-    Exception exception = 1;
-    FileItem file = 2;
+    bytes data = 1;
 }
 
 message ReadDirectoryRequest {
     string path = 1;
+    bool show_hidden_files = 2;
+    bool show_hidden_directories = 3;
 }
 
 message ReadDirectoryResponse {
     Exception exception = 1;
-    repeated FileItem files = 2;
-    repeated DirectoryItem directories = 3;
+    repeated FileEntry file_entries = 2;
+    repeated DirectoryEntry directory_entries = 3;
 }
