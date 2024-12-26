@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "Archive.FileSystemService.V1";
+
+enum FileType
+{
+    FILE_TYPE_UNSPECIFIED= 0;
+    FILE_TYPE_TEXT = 1;
+    FILE_TYPE_IMAGE = 2;
+    FILE_TYPE_AUDIO = 3;
+    FILE_TYPE_VIDEO = 4;
+}
+
+message FileEntry
+{
+    string absolute_path = 1;
+    string name = 2;
+    string extension = 3;
+    string created_at = 4;
+    string modified_at = 5;
+    int64 size = 6;
+    FileType file_type = 7;
+}
