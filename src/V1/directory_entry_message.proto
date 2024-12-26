@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option csharp_namespace = "Archive.FileSystemService.V1";
 
-message DirectoryItem
+message DirectoryEntry
 {
     string absolute_path = 1;
     string name = 2;
