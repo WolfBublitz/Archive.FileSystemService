@@ -2,15 +2,18 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 
-import "V1/directory_item_message.proto";
+import "V1/directory_entry_message.proto";
 import "V1/exception_message.proto";
-import "V1/file_item_message.proto";
+import "V1/file_entry_message.proto";
+import "V1/file_system_info.proto";
 import "V1/identification_message.proto";
 
 option csharp_namespace = "Archive.FileSystemService.V1";
 
-service FileSystem {
+service FileSystemService {
     rpc Identify (google.protobuf.Empty) returns (Identification);
+
+    rpc GetFileSystemInfos (google.protobuf.Empty) returns (FileSystemInfos);
 
     rpc ReadFile (ReadFileRequest) returns (stream ReadFileResponse);
 
@@ -18,22 +21,26 @@ service FileSystem {
 }
 
 message ReadFileRequest {
-    string path = 1;
-    int32 chunk_size = 2;
+    FileSystemInfo file_system_info = 1;
+    string path = 2;
+    int32 chunk_size = 3;
 }
 
 message ReadFileResponse {
-    bytes data = 1;
+    FileSystemInfo file_system_info = 1;
+    bytes data = 2;
 }
 
 message ReadDirectoryRequest {
-    string path = 1;
-    bool show_hidden_files = 2;
-    bool show_hidden_directories = 3;
+    FileSystemInfo file_system_info = 1;
+    string path = 2;
+    bool show_hidden_files = 3;
+    bool show_hidden_directories = 4;
 }
 
 message ReadDirectoryResponse {
-    Exception exception = 1;
-    repeated FileEntry file_entries = 2;
-    repeated DirectoryEntry directory_entries = 3;
+    FileSystemInfo file_system_info = 1;
+    Exception exception = 2;
+    repeated FileEntry file_entries = 3;
+    repeated DirectoryEntry directory_entries = 4;
 }

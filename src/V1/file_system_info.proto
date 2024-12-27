@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option csharp_namespace = "Archive.FileSystemService.V1";
+
+message FileSystemInfo
+{
+    string root_path = 1;
+    string name = 2;
+}
+
+message FileSystemInfos
+{
+    repeated FileSystemInfo file_system_infos = 1;
+}
