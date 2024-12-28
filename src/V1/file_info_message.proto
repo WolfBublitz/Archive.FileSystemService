@@ -11,7 +11,7 @@ enum FileType
     FILE_TYPE_VIDEO = 4;
 }
 
-message FileEntry
+message FileInfo
 {
     string absolute_path = 1;
     string name = 2;
