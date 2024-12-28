@@ -41,6 +41,6 @@ message ReadDirectoryRequest {
 message ReadDirectoryResponse {
     FileSystemInfo file_system_info = 1;
     Exception exception = 2;
-    repeated FileEntry file_entries = 3;
-    repeated DirectoryEntry directory_entries = 4;
+    repeated FileInfo files = 3;
+    repeated DirectoryInfo directories = 4;
 }
