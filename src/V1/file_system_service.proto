@@ -2,9 +2,9 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 
-import "V1/directory_entry_message.proto";
+import "V1/directory_info_message.proto";
 import "V1/exception_message.proto";
-import "V1/file_entry_message.proto";
+import "V1/file_info_message.proto";
 import "V1/file_system_info.proto";
 import "V1/identification_message.proto";
 
