@@ -1,11 +1,15 @@
 syntax = "proto3";
 
+import "V1/date_time_message.proto";
+import "V1/metadata_message.proto";
+
 option csharp_namespace = "Archive.FileSystemService.V1";
 
 message DirectoryInfo
 {
     string absolute_path = 1;
     string name = 2;
-    string created_at = 6;
-    string modified_at = 7;
+    DateTime created_at = 3;
+    DateTime modified_at = 4;
+    Metadata metadata = 5;
 }

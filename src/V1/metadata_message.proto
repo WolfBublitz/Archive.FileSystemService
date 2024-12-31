@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "V1/thumbnail_message.proto";
+
+option csharp_namespace = "Archive.FileSystemService.V1";
+
+message Metadata {
+    string title = 1;
+    string description = 2;
+    int32 rating = 3;
+    string location = 4;
+    string icon = 5;
+    string color = 6;
+    repeated string tags = 7;
+    repeated Thumbnail thumbnails = 8;
+}

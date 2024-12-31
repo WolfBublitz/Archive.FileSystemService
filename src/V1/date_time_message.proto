@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option csharp_namespace = "Archive.FileSystemService.V1";
+
+message DateTime
+{
+    int32 day = 1;
+    int32 month = 2;
+    int32 year = 3;
+    int32 hour = 4;
+    int32 minute = 5;
+    int32 second = 6;
+    int32 millisecond = 7;
+    int32 offset = 8;
+}

@@ -17,11 +17,13 @@ service FileSystemService {
 
     rpc ReadFile (ReadFileRequest) returns (stream ReadFileResponse);
 
+    rpc ReadImage (ReadImageRequest) returns (stream ReadImageResponse);
+
     rpc ReadDirectory (ReadDirectoryRequest) returns (ReadDirectoryResponse);
 }
 
 message ReadFileRequest {
-    FileSystemInfo file_system_info = 1;
+    string file_system = 1;
     string path = 2;
     int32 chunk_size = 3;
 }
@@ -31,8 +33,21 @@ message ReadFileResponse {
     bytes data = 2;
 }
 
-message ReadDirectoryRequest {
+message ReadImageRequest {
+    string file_system = 1;
+    string path = 2;
+    int32 chunk_size = 3;
+    int32 width = 4;
+    int32 height = 5;
+}
+
+message ReadImageResponse {
     FileSystemInfo file_system_info = 1;
+    bytes data = 2;
+}
+
+message ReadDirectoryRequest {
+    string file_system = 1;
     string path = 2;
     bool show_hidden_files = 3;
     bool show_hidden_directories = 4;

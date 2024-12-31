@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option csharp_namespace = "Archive.FileSystemService.V1";
+
+message Thumbnail {
+    int32 height = 1;
+    int32 width = 2;
+    bytes data = 3;
+}
